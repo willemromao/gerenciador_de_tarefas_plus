@@ -30,4 +30,12 @@ public class TarefaHabito extends Tarefa {
     public String toString() {
         return "TarefaHabito{id=" + getId() + ", nome='" + getNome() + "', contadorPositivo=" + contadorPositivo + ", contadorNegativo=" + contadorNegativo + "}";
     }
+
+    public void incrementarPositivo() {
+        this.contadorPositivo++;
+    }
+
+    public void incrementarNegativo() {
+        this.contadorNegativo++;
+    }
 }

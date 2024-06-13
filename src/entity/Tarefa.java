@@ -20,4 +20,8 @@ public abstract class Tarefa extends Entity {
     public String toString() {
         return "Tarefa{id=" + getId() + ", nome='" + nome + "'}";
     }
+
+    public void concluir() {
+
+    }
 }

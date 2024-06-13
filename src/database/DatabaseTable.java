@@ -1,13 +1,14 @@
 package database;
 
 import entity.Entity;
-import entity.Tarefa;
 import exception.EntityNotFoundException;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class DatabaseTable<T extends Entity> implements DatabaseTableI<T> {
     private int novoId = 1;
@@ -47,7 +48,10 @@ public class DatabaseTable<T extends Entity> implements DatabaseTableI<T> {
     }
 
     @Override
-    public List<T> findAll(Predicate<Tarefa> filter) {
-        return List.of();
+    public List<T> findAll(Predicate<T> filter) {
+        if (filter == null) {
+            return new ArrayList<>(data.values());
+        }
+        return data.values().stream().filter(filter).collect(Collectors.toList());
     }
 }

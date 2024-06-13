@@ -3,23 +3,32 @@ package entity;
 import java.time.LocalDate;
 
 public class TarefaAfazer extends Tarefa {
-    private LocalDate data;
+    private LocalDate dataConclusao;
 
-    public TarefaAfazer(int id, String nome, LocalDate data) {
+    public TarefaAfazer(int id, String nome, LocalDate dataConclusao) {
         super(id, nome);
-        this.data = data;
+        this.dataConclusao = dataConclusao;
     }
 
-    public LocalDate getData() {
-        return data;
+    public LocalDate getDataConclusao() {
+        return dataConclusao;
     }
 
-    public void setData(LocalDate data) {
-        this.data = data;
+    public void setDataConclusao(LocalDate dataConclusao) {
+        this.dataConclusao = dataConclusao;
+    }
+
+    @Override
+    public void concluir() {
+        this.dataConclusao = LocalDate.now();
     }
 
     @Override
     public String toString() {
-        return "TarefaAfazer{id=" + getId() + ", nome='" + getNome() + "', data=" + data + "}";
+        return "TarefaAfazer{" +
+                "dataConclusao=" + dataConclusao +
+                ", id=" + getId() +
+                ", nome='" + getNome() + '\'' +
+                '}';
     }
 }
