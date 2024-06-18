@@ -1,20 +1,18 @@
 package entity;
 
-import java.time.LocalDate;
-
 public class TarefaDiaria extends Tarefa {
-    private LocalDate prioridade;
+    private Prioridade prioridade;
 
-    public TarefaDiaria(int id, String nome, LocalDate prioridade) {
+    public TarefaDiaria(int id, String nome, Prioridade prioridade) {
         super(id, nome);
         this.prioridade = prioridade;
     }
 
-    public LocalDate getPrioridade() {
+    public Prioridade getPrioridade() {
         return prioridade;
     }
 
-    public void setPrioridade(LocalDate prioridade) {
+    public void setPrioridade(Prioridade prioridade) {
         this.prioridade = prioridade;
     }
 

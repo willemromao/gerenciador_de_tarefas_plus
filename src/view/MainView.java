@@ -22,12 +22,13 @@ public class MainView {
         Scanner scanner = new Scanner(System.in);
         int opcao;
         do {
-            System.out.println("### Gerenciar Tarefas ###");
-            System.out.println("1. Listar Tarefas");
-            System.out.println("2. Adicionar Tarefa");
-            System.out.println("3. Editar Tarefa");
-            System.out.println("4. Remover Tarefa");
-            System.out.println("5. Voltar ao Menu Principal");
+            System.out.println("===== Gerenciador de Tarefas ======");
+            System.out.println("1. Listar");
+            System.out.println("2. Adicionar");
+            System.out.println("3. Editar");
+            System.out.println("4. Remover");
+            System.out.println("5. Concluir");
+            System.out.println("6. Sair do sistema \n");
             System.out.print("Escolha uma opção: ");
 
             opcao = scanner.nextInt();
@@ -48,7 +49,10 @@ public class MainView {
                     view = new RemoverTarefaView(tarefaService);
                     break;
                 case 5:
-                    System.out.println("Voltando ao Menu Principal...");
+                    view = new ConcluirTarefaView(tarefaService);
+                    break;
+                case 6:
+                    System.out.println("Saindo do sistema...");
                     continue;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");

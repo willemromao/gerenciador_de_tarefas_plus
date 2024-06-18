@@ -1,5 +1,6 @@
 package view;
 
+import entity.Prioridade;
 import entity.TarefaAfazer;
 import entity.TarefaDiaria;
 import entity.TarefaHabito;
@@ -16,7 +17,7 @@ public class AdicionarTarefaView extends TarefaView {
 
     @Override
     public void execute() {
-        System.out.println("### Adicionar Tarefa ###");
+        System.out.println("===== Adicionar Tarefa =====");
         System.out.println("1. Habito");
         System.out.println("2. Diaria");
         System.out.println("3. Afazer");
@@ -34,9 +35,18 @@ public class AdicionarTarefaView extends TarefaView {
                     tarefaService.adicionar(habito);
                     break;
                 case 2:
-                    System.out.print("Data (YYYY-MM-DD): ");
-                    String data = scanner.nextLine();
-                    TarefaDiaria diaria = new TarefaDiaria(0, nome, LocalDate.parse(data));
+                    System.out.print("Escolha a prioridade (BAIXA, MEDIA, ALTA): ");
+                    String prioridadeInput = scanner.nextLine().toUpperCase();
+
+                    Prioridade prioridade;
+                    try {
+                        prioridade = Prioridade.valueOf(prioridadeInput);
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Prioridade inválida. Usando prioridade padrão: BAIXA.");
+                        prioridade = Prioridade.BAIXA;
+                    }
+
+                    TarefaDiaria diaria = new TarefaDiaria(0, nome, prioridade);
                     tarefaService.adicionar(diaria);
                     break;
                 case 3:

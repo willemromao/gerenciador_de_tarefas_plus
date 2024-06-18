@@ -20,14 +20,17 @@ public class ListarTarefaView extends TarefaView {
             List<TarefaDiaria> diarias = tarefaService.listarDiarias();
             List<TarefaAfazer> afazeres = tarefaService.listarAfazeres();
 
-            System.out.println("### Habitos ###");
+            System.out.println("===== Habitos =====");
             habitos.forEach(System.out::println);
+            System.out.println();
 
-            System.out.println("### Diarias ###");
+            System.out.println("===== Diarias =====");
             diarias.forEach(System.out::println);
+            System.out.println();
 
-            System.out.println("### Afazeres ###");
+            System.out.println("===== Afazeres =====");
             afazeres.forEach(System.out::println);
+            System.out.println();
         } catch (ServiceOperationException e) {
             System.out.println("Erro ao listar tarefas: " + e.getMessage());
         }
