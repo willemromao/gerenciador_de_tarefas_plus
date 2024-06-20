@@ -59,7 +59,7 @@ public class MainView {
                     continue;
             }
             view.execute();
-        } while (opcao != 5);
+        } while (opcao != 6);
         scanner.close();
     }
 }

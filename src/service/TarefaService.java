@@ -1,13 +1,11 @@
 package service;
 
 import dao.DAO;
+import entity.*;
 import exception.DAOException;
 import exception.ServiceOperationException;
-import entity.Tarefa;
-import entity.TarefaAfazer;
-import entity.TarefaDiaria;
-import entity.TarefaHabito;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,11 +47,27 @@ public class TarefaService {
         }
     }
 
-    public void adicionar(Tarefa tarefa) throws ServiceOperationException {
+    public void adicionar(TarefaHabito habito) throws ServiceOperationException {
         try {
-            getDAO(tarefa).save(tarefa);
+            habitoDAO.save(habito);
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error adding task: " + e.getMessage(), e);
+            throw new ServiceOperationException("Error adding habit task: " + e.getMessage(), e);
+        }
+    }
+
+    public void adicionar(TarefaDiaria diaria) throws ServiceOperationException {
+        try {
+            diariaDAO.save(diaria);
+        } catch (DAOException e) {
+            throw new ServiceOperationException("Error adding daily task: " + e.getMessage(), e);
+        }
+    }
+
+    public void adicionar(TarefaAfazer afazer) throws ServiceOperationException {
+        try {
+            afazerDAO.save(afazer);
+        } catch (DAOException e) {
+            throw new ServiceOperationException("Error adding todo task: " + e.getMessage(), e);
         }
     }
 

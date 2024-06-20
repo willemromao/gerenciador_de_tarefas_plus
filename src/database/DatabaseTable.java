@@ -7,19 +7,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class DatabaseTable<T extends Entity> implements DatabaseTableI<T> {
-    private int novoId = 1;
     private final Map<Integer, T> data = new HashMap<>();
+    private final AtomicInteger nextId = new AtomicInteger(1);
 
     @Override
     public void save(T entity) {
-        if (entity.getId() == 0) {
-            entity.setId(novoId++);
-        }
-        data.put(entity.getId(), entity);
+        int entityId = nextId.getAndIncrement();
+        entity.setId(entityId);
+        data.put(entityId, entity);
     }
 
     @Override

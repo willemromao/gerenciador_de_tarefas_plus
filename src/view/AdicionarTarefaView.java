@@ -1,6 +1,7 @@
 package view;
 
 import entity.Prioridade;
+import entity.Tarefa;
 import entity.TarefaAfazer;
 import entity.TarefaDiaria;
 import entity.TarefaHabito;
@@ -8,6 +9,7 @@ import exception.ServiceOperationException;
 import service.TarefaService;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class AdicionarTarefaView extends TarefaView {
 
@@ -31,7 +33,7 @@ public class AdicionarTarefaView extends TarefaView {
         try {
             switch (tipo) {
                 case 1:
-                    TarefaHabito habito = new TarefaHabito(0, nome, 0, 0);
+                    TarefaHabito habito = new TarefaHabito(nome); // Criando com o construtor de nome
                     tarefaService.adicionar(habito);
                     break;
                 case 2:
@@ -46,13 +48,13 @@ public class AdicionarTarefaView extends TarefaView {
                         prioridade = Prioridade.BAIXA;
                     }
 
-                    TarefaDiaria diaria = new TarefaDiaria(0, nome, prioridade);
+                    TarefaDiaria diaria = new TarefaDiaria(nome, prioridade); // Criando com o construtor de nome e prioridade
                     tarefaService.adicionar(diaria);
                     break;
                 case 3:
                     System.out.print("Data de conclusão esperada (YYYY-MM-DD): ");
                     String dataConclusao = scanner.nextLine();
-                    TarefaAfazer afazer = new TarefaAfazer(0, nome, LocalDate.parse(dataConclusao));
+                    TarefaAfazer afazer = new TarefaAfazer(nome, LocalDate.parse(dataConclusao)); // Criando com o construtor de nome e data
                     tarefaService.adicionar(afazer);
                     break;
                 default:

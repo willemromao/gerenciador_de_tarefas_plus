@@ -5,18 +5,12 @@ import java.time.LocalDate;
 public class TarefaAfazer extends Tarefa {
     private LocalDate dataConclusao;
 
-    public TarefaAfazer(int id, String nome, LocalDate dataConclusao) {
-        super(id, nome);
+    public TarefaAfazer(String nome, LocalDate dataConclusao) {
+        super(nome);
         this.dataConclusao = dataConclusao;
     }
 
-    public LocalDate getDataConclusao() {
-        return dataConclusao;
-    }
-
-    public void setDataConclusao(LocalDate dataConclusao) {
-        this.dataConclusao = dataConclusao;
-    }
+    // getters and setters
 
     @Override
     public void concluir() {

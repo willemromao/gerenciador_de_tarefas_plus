@@ -3,18 +3,12 @@ package entity;
 public class TarefaDiaria extends Tarefa {
     private Prioridade prioridade;
 
-    public TarefaDiaria(int id, String nome, Prioridade prioridade) {
-        super(id, nome);
+    public TarefaDiaria(String nome, Prioridade prioridade) {
+        super(nome);
         this.prioridade = prioridade;
     }
 
-    public Prioridade getPrioridade() {
-        return prioridade;
-    }
-
-    public void setPrioridade(Prioridade prioridade) {
-        this.prioridade = prioridade;
-    }
+    // getters and setters
 
     @Override
     public String toString() {

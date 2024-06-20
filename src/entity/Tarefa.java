@@ -3,8 +3,7 @@ package entity;
 public abstract class Tarefa extends Entity {
     private String nome;
 
-    public Tarefa(int id, String nome) {
-        super(id);
+    public Tarefa(String nome) {
         this.nome = nome;
     }
 
@@ -22,6 +21,6 @@ public abstract class Tarefa extends Entity {
     }
 
     public void concluir() {
-
+        // Implementação da conclusão da tarefa
     }
 }
