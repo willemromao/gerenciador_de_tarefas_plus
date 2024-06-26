@@ -22,12 +22,12 @@ public class MainView {
         Scanner scanner = new Scanner(System.in);
         int opcao;
         do {
-            System.out.println("===== Gerenciador de Tarefas ======");
+            System.out.println("===== GERENCIADOR DE TAREFAS PLUS ======");
             System.out.println("1. Listar");
             System.out.println("2. Adicionar");
             System.out.println("3. Editar");
             System.out.println("4. Remover");
-            System.out.println("5. Concluir");
+            System.out.println("5. Concluir uma Tarefa");
             System.out.println("6. Sair do sistema \n");
             System.out.print("Escolha uma opção: ");
 

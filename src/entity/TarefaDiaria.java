@@ -10,8 +10,12 @@ public class TarefaDiaria extends Tarefa {
 
     // getters and setters
 
+    public void setPrioridade(Prioridade prioridade) {
+        this.prioridade = prioridade;
+    }
+
     @Override
     public String toString() {
-        return "TarefaDiaria{id=" + getId() + ", nome='" + getNome() + "', prioridade=" + prioridade + "}";
+        return "Tarefa Diária (" + getId() + "), " + getNome() + ", Prioridade: " + prioridade;
     }
 }

@@ -79,6 +79,47 @@ public class TarefaService {
         }
     }
 
+    public void editarTarefaHabito(int id, String novoNome) throws ServiceOperationException {
+        try {
+            TarefaHabito habito = buscarHabitoPorId(id);
+            if (habito == null) {
+                throw new ServiceOperationException("Habit task not found with ID: " + id);
+            }
+            habito.setNome(novoNome);
+            habitoDAO.update(id, habito);
+        } catch (DAOException e) {
+            throw new ServiceOperationException("Error editing habit task: " + e.getMessage(), e);
+        }
+    }
+
+    public void editarTarefaDiaria(int id, String novoNome, Prioridade novaPrioridade) throws ServiceOperationException {
+        try {
+            TarefaDiaria diaria = buscarDiariaPorId(id);
+            if (diaria == null) {
+                throw new ServiceOperationException("Daily task not found with ID: " + id);
+            }
+            diaria.setNome(novoNome);
+            diaria.setPrioridade(novaPrioridade);
+            diariaDAO.update(id, diaria);
+        } catch (DAOException e) {
+            throw new ServiceOperationException("Error editing daily task: " + e.getMessage(), e);
+        }
+    }
+
+    public void editarTarefaAfazer(int id, String novoNome, LocalDate novaDataConclusao) throws ServiceOperationException {
+        try {
+            TarefaAfazer afazer = buscarAfazerPorId(id);
+            if (afazer == null) {
+                throw new ServiceOperationException("Todo task not found with ID: " + id);
+            }
+            afazer.setNome(novoNome);
+            afazer.setDataConclusao(novaDataConclusao);
+            afazerDAO.update(id, afazer);
+        } catch (DAOException e) {
+            throw new ServiceOperationException("Error editing todo task: " + e.getMessage(), e);
+        }
+    }
+
     public void exibir(Tarefa tarefa) {
         System.out.println(tarefa);
     }
@@ -173,4 +214,5 @@ public class TarefaService {
             throw new ServiceOperationException("Error listing todos: " + e.getMessage(), e);
         }
     }
+
 }

@@ -22,6 +22,7 @@ public class DatabaseTable<T extends Entity> implements DatabaseTableI<T> {
         data.put(entityId, entity);
     }
 
+
     @Override
     public T findById(int id) throws EntityNotFoundException {
         T entity = data.get(id);

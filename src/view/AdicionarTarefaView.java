@@ -21,9 +21,9 @@ public class AdicionarTarefaView extends TarefaView {
 
     @Override
     public void execute() {
-        System.out.println("===== Adicionar Tarefa =====");
-        System.out.println("1. Habito");
-        System.out.println("2. Diaria");
+        System.out.println("===== ADICIONAR TAREFA =====");
+        System.out.println("1. Hábito");
+        System.out.println("2. Diária");
         System.out.println("3. Afazer");
         System.out.print("Escolha o tipo de tarefa: ");
         int tipo = scanner.nextInt();
@@ -54,6 +54,7 @@ public class AdicionarTarefaView extends TarefaView {
                     tarefaService.adicionar(diaria);
                     break;
                 case 3:
+                    // Adicionar tarefa afazer
                     LocalDate dataConclusao = null;
                     boolean dataValida = false;
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -67,6 +68,11 @@ public class AdicionarTarefaView extends TarefaView {
                             System.out.println("Data inválida. Por favor, insira uma data no formato DD-MM-YYYY.");
                         }
                     }
+                    TarefaAfazer afazer = new TarefaAfazer(nome, dataConclusao);
+                    tarefaService.adicionar(afazer);
+                    break;
+                default:
+                    System.out.println("Opção inválida.");
             }
         } catch (ServiceOperationException e) {
             System.out.println("Erro ao adicionar tarefa: " + e.getMessage());

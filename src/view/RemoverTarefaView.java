@@ -12,7 +12,7 @@ public class RemoverTarefaView extends TarefaView {
 
     @Override
     public void execute() {
-        System.out.println("===== Remover Tarefa =====");
+        System.out.println("===== REMOVER TAREFA =====");
         System.out.println("1. Hábito");
         System.out.println("2. Diária");
         System.out.println("3. Afazer");
