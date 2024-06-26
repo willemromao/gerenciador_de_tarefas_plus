@@ -9,6 +9,8 @@ import exception.ServiceOperationException;
 import service.TarefaService;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class AdicionarTarefaView extends TarefaView {
@@ -52,13 +54,19 @@ public class AdicionarTarefaView extends TarefaView {
                     tarefaService.adicionar(diaria);
                     break;
                 case 3:
-                    System.out.print("Data de conclusão esperada (YYYY-MM-DD): ");
-                    String dataConclusao = scanner.nextLine();
-                    TarefaAfazer afazer = new TarefaAfazer(nome, LocalDate.parse(dataConclusao)); // Criando com o construtor de nome e data
-                    tarefaService.adicionar(afazer);
-                    break;
-                default:
-                    System.out.println("Tipo de tarefa inválido.");
+                    LocalDate dataConclusao = null;
+                    boolean dataValida = false;
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                    while (!dataValida) {
+                        System.out.print("Data de conclusão esperada (DD-MM-YYYY): ");
+                        String dataInput = scanner.nextLine();
+                        try {
+                            dataConclusao = LocalDate.parse(dataInput, formatter);
+                            dataValida = true;
+                        } catch (DateTimeParseException e) {
+                            System.out.println("Data inválida. Por favor, insira uma data no formato DD-MM-YYYY.");
+                        }
+                    }
             }
         } catch (ServiceOperationException e) {
             System.out.println("Erro ao adicionar tarefa: " + e.getMessage());

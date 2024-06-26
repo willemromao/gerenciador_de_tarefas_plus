@@ -71,14 +71,6 @@ public class TarefaService {
         }
     }
 
-    public void remover(Tarefa tarefa) throws ServiceOperationException {
-        try {
-            getDAO(tarefa).delete(tarefa.getId());
-        } catch (DAOException e) {
-            throw new ServiceOperationException("Error removing task: " + e.getMessage(), e);
-        }
-    }
-
     public void editar(Tarefa tarefa) throws ServiceOperationException {
         try {
             getDAO(tarefa).update(tarefa.getId(), tarefa);
@@ -89,6 +81,41 @@ public class TarefaService {
 
     public void exibir(Tarefa tarefa) {
         System.out.println(tarefa);
+    }
+
+    public TarefaHabito buscarHabitoPorId(int id) throws ServiceOperationException {
+        try {
+            Optional<TarefaHabito> habito = habitoDAO.findById(id);
+            return habito.orElse(null);
+        } catch (DAOException e) {
+            throw new ServiceOperationException("Error finding habit task by ID: " + e.getMessage(), e);
+        }
+    }
+
+    public TarefaDiaria buscarDiariaPorId(int id) throws ServiceOperationException {
+        try {
+            Optional<TarefaDiaria> diaria = diariaDAO.findById(id);
+            return diaria.orElse(null);
+        } catch (DAOException e) {
+            throw new ServiceOperationException("Error finding daily task by ID: " + e.getMessage(), e);
+        }
+    }
+
+    public TarefaAfazer buscarAfazerPorId(int id) throws ServiceOperationException {
+        try {
+            Optional<TarefaAfazer> afazer = afazerDAO.findById(id);
+            return afazer.orElse(null);
+        } catch (DAOException e) {
+            throw new ServiceOperationException("Error finding todo task by ID: " + e.getMessage(), e);
+        }
+    }
+
+    public void remover(Tarefa tarefa) throws ServiceOperationException {
+        try {
+            getDAO(tarefa).delete(tarefa.getId());
+        } catch (DAOException e) {
+            throw new ServiceOperationException("Error removing task: " + e.getMessage(), e);
+        }
     }
 
     private DAO<? extends Tarefa> getDAO(Tarefa tarefa) throws ServiceOperationException {
