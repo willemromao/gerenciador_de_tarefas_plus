@@ -25,14 +25,11 @@ public class Database {
     }
 
     @SuppressWarnings("unchecked")
-    private <T extends Entity> DatabaseTable<T> getTable(Class<T> entityType) {
+    public <T extends Entity> DatabaseTable<T> getTable(Class<T> entityType) {
         return (DatabaseTable<T>) tables.computeIfAbsent(entityType, k -> new DatabaseTable<>());
     }
 
     public <T extends Entity> void save(Class<T> entityType, T entity) {
-        if (entity.getId() == 0) {
-            entity.setId(nextId.getAndIncrement());
-        }
         getTable(entityType).save(entity);
     }
 

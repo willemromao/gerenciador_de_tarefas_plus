@@ -14,6 +14,6 @@ public class TarefaDiaria extends Tarefa {
 
     @Override
     public String toString() {
-        return "Tarefa Diária (" + getId() + "), " + getNome() + ", Prioridade: " + prioridade;
+        return "Tarefa Diária (" + getId() + ")   " + getNome() + "   Prioridade: " + prioridade;
     }
 }

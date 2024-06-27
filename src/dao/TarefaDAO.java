@@ -1,6 +1,7 @@
 package dao;
 
-import database.DatabaseTableI;
+import database.Database;
+import database.DatabaseTable;
 import entity.Tarefa;
 import exception.DAOException;
 import exception.EntityNotFoundException;
@@ -12,10 +13,14 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class TarefaDAO<T extends Tarefa> implements DAO<T> {
-    private final DatabaseTableI<T> table;
+    private final DatabaseTable<T> table;
 
-    public TarefaDAO(DatabaseTableI<T> table) {
+    public TarefaDAO(DatabaseTable<T> table) {
         this.table = table;
+    }
+
+    public TarefaDAO(Class<T> entityType) {
+        this.table = Database.getInstance().getTable(entityType);
     }
 
     @Override

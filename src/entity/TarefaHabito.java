@@ -20,7 +20,7 @@ public class TarefaHabito extends Tarefa {
 
     @Override
     public String toString() {
-        return "Tarefa Hábito (" + getId() + "),  " + getNome() + ", Contador +" + contadorPositivo +
+        return "Tarefa Hábito (" + getId() + ")   " + getNome() + "   Contador: +" + contadorPositivo +
                 " -" + contadorNegativo;
     }
 }

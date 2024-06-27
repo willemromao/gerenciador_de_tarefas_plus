@@ -1,8 +1,8 @@
 package view;
 
+import database.Database;
 import service.TarefaService;
 import dao.TarefaDAO;
-import database.DatabaseTable;
 import entity.TarefaAfazer;
 import entity.TarefaDiaria;
 import entity.TarefaHabito;
@@ -13,9 +13,10 @@ public class MainView {
     private final TarefaService tarefaService;
 
     public MainView() {
-        TarefaDAO<TarefaHabito> tarefaHabitoDAO = new TarefaDAO<>(new DatabaseTable<>());
-        TarefaDAO<TarefaDiaria> tarefaDiariaDAO = new TarefaDAO<>(new DatabaseTable<>());
-        TarefaDAO<TarefaAfazer> tarefaAfazerDAO = new TarefaDAO<>(new DatabaseTable<>());
+        Database database = Database.getInstance();
+        TarefaDAO<TarefaHabito> tarefaHabitoDAO = new TarefaDAO<>(database.getTable(TarefaHabito.class));
+        TarefaDAO<TarefaDiaria> tarefaDiariaDAO = new TarefaDAO<>(database.getTable(TarefaDiaria.class));
+        TarefaDAO<TarefaAfazer> tarefaAfazerDAO = new TarefaDAO<>(database.getTable(TarefaAfazer.class));
         this.tarefaService = new TarefaService(tarefaHabitoDAO, tarefaDiariaDAO, tarefaAfazerDAO);
     }
 
