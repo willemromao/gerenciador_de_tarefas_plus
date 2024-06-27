@@ -13,21 +13,21 @@ public class ContadorHabitosView extends TarefaView {
 
     @Override
     public void execute() {
-        System.out.print("Número da Tarefa a ser incrementada/decrementada: ");
+        System.out.print("Número do Hábito a ser contado: ");
         int id = scanner.nextInt();
         scanner.nextLine();
 
         try {
             Tarefa tarefa = tarefaService.buscarPorId(id);
             if (tarefa == null) {
-                System.out.println("Tarefa não encontrada.");
+                System.out.println("Hábito não encontrado.");
                 return;
             }
 
             if (tarefa instanceof TarefaHabito habito) {
-                System.out.println("Escolha a operação:");
-                System.out.println("1. Incrementar positivo");
-                System.out.println("2. Incrementar negativo");
+                System.out.println("Status do hábito:");
+                System.out.println("1. Feito");
+                System.out.println("2. Não feito");
                 System.out.print("Opção: ");
                 int opcao = scanner.nextInt();
                 scanner.nextLine();
