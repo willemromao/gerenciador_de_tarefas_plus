@@ -21,6 +21,5 @@ public abstract class Tarefa extends Entity {
     }
 
     public void concluir() {
-        // Implementação da conclusão da tarefa
     }
 }

@@ -24,8 +24,7 @@ public class ConcluirTarefaView extends TarefaView {
                 return;
             }
 
-            if (tarefa instanceof TarefaHabito) {
-                TarefaHabito habito = (TarefaHabito) tarefa;
+            if (tarefa instanceof TarefaHabito habito) {
                 tarefaService.incrementarPositivo(habito);
             } else {
                 tarefaService.concluir(tarefa);

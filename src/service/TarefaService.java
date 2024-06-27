@@ -71,14 +71,6 @@ public class TarefaService {
         }
     }
 
-    public void editar(Tarefa tarefa) throws ServiceOperationException {
-        try {
-            getDAO(tarefa).update(tarefa.getId(), tarefa);
-        } catch (DAOException e) {
-            throw new ServiceOperationException("Erro ao editar a tarefa: " + e.getMessage(), e);
-        }
-    }
-
     public void editarTarefaHabito(int id, String novoNome) throws ServiceOperationException {
         try {
             TarefaHabito habito = buscarHabitoPorId(id);
@@ -118,10 +110,6 @@ public class TarefaService {
         } catch (DAOException e) {
             throw new ServiceOperationException("Erro ao editar Tarefa Afazer: " + e.getMessage(), e);
         }
-    }
-
-    public void exibir(Tarefa tarefa) {
-        System.out.println(tarefa);
     }
 
     public TarefaHabito buscarHabitoPorId(int id) throws ServiceOperationException {

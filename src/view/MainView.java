@@ -6,6 +6,7 @@ import database.DatabaseTable;
 import entity.TarefaAfazer;
 import entity.TarefaDiaria;
 import entity.TarefaHabito;
+
 import java.util.Scanner;
 
 public class MainView {
@@ -58,7 +59,7 @@ public class MainView {
                     System.out.println("Opção inválida. Tente novamente.");
                     continue;
             }
-            view.execute();
+            view.startView();
         } while (opcao != 6);
         scanner.close();
     }

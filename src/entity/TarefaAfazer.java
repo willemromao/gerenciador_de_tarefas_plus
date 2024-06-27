@@ -12,10 +12,6 @@ public class TarefaAfazer extends Tarefa {
         this.dataConclusao = dataConclusao;
     }
 
-    public LocalDate getDataConclusao() {
-        return dataConclusao;
-    }
-
     public void setDataConclusao(LocalDate dataConclusao) {
         this.dataConclusao = dataConclusao;
     }

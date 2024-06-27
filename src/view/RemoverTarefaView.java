@@ -25,7 +25,7 @@ public class RemoverTarefaView extends TarefaView {
         scanner.nextLine();
 
         try {
-            Tarefa tarefa = null;
+            Tarefa tarefa;
             switch (tipo) {
                 case 1:
                     tarefa = tarefaService.buscarHabitoPorId(id);

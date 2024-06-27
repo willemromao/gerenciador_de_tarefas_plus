@@ -1,7 +1,6 @@
 package view;
 
 import entity.Prioridade;
-import entity.Tarefa;
 import entity.TarefaAfazer;
 import entity.TarefaDiaria;
 import entity.TarefaHabito;
@@ -11,7 +10,6 @@ import service.TarefaService;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.Scanner;
 
 public class AdicionarTarefaView extends TarefaView {
 
