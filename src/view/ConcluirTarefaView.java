@@ -15,7 +15,7 @@ public class ConcluirTarefaView extends TarefaView {
     public void execute() {
         System.out.print("ID da Tarefa a ser concluída: ");
         int id = scanner.nextInt();
-        scanner.nextLine(); // Limpar o buffer de entrada
+        scanner.nextLine();
 
         try {
             Tarefa tarefa = tarefaService.buscarPorId(id);

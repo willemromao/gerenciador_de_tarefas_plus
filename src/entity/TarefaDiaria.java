@@ -8,8 +8,6 @@ public class TarefaDiaria extends Tarefa {
         this.prioridade = prioridade;
     }
 
-    // getters and setters
-
     public void setPrioridade(Prioridade prioridade) {
         this.prioridade = prioridade;
     }

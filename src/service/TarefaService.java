@@ -25,7 +25,7 @@ public class TarefaService {
             habito.incrementarPositivo();
             habitoDAO.update(habito.getId(), habito);
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error incrementing positive count for habit task: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao incrementar a contagem positiva para tarefa de hábito: " + e.getMessage(), e);
         }
     }
 
@@ -34,7 +34,7 @@ public class TarefaService {
             habito.incrementarNegativo();
             habitoDAO.update(habito.getId(), habito);
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error incrementing negative count for habit task: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao incrementar a contagem negativa para tarefa de hábito: " + e.getMessage(), e);
         }
     }
 
@@ -43,7 +43,7 @@ public class TarefaService {
             tarefa.concluir();
             getDAO(tarefa).update(tarefa.getId(), tarefa);
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error completing task: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao concluir a tarefa: " + e.getMessage(), e);
         }
     }
 
@@ -51,7 +51,7 @@ public class TarefaService {
         try {
             habitoDAO.save(habito);
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error adding habit task: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao adicionar tarefa de hábito: " + e.getMessage(), e);
         }
     }
 
@@ -59,7 +59,7 @@ public class TarefaService {
         try {
             diariaDAO.save(diaria);
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error adding daily task: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao adicionar tarefa Diária: " + e.getMessage(), e);
         }
     }
 
@@ -67,7 +67,7 @@ public class TarefaService {
         try {
             afazerDAO.save(afazer);
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error adding todo task: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao adicionar tarefa Afazer: " + e.getMessage(), e);
         }
     }
 
@@ -75,7 +75,7 @@ public class TarefaService {
         try {
             getDAO(tarefa).update(tarefa.getId(), tarefa);
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error editing task: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao editar a tarefa: " + e.getMessage(), e);
         }
     }
 
@@ -83,12 +83,12 @@ public class TarefaService {
         try {
             TarefaHabito habito = buscarHabitoPorId(id);
             if (habito == null) {
-                throw new ServiceOperationException("Habit task not found with ID: " + id);
+                throw new ServiceOperationException("Tarefa Hábito não encontrada com ID: " + id);
             }
             habito.setNome(novoNome);
             habitoDAO.update(id, habito);
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error editing habit task: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao editar Tarefa Hábito: " + e.getMessage(), e);
         }
     }
 
@@ -96,13 +96,13 @@ public class TarefaService {
         try {
             TarefaDiaria diaria = buscarDiariaPorId(id);
             if (diaria == null) {
-                throw new ServiceOperationException("Daily task not found with ID: " + id);
+                throw new ServiceOperationException("Tarefa Diária não encontrada com ID: " + id);
             }
             diaria.setNome(novoNome);
             diaria.setPrioridade(novaPrioridade);
             diariaDAO.update(id, diaria);
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error editing daily task: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao editar a Tarefa Diária: " + e.getMessage(), e);
         }
     }
 
@@ -110,13 +110,13 @@ public class TarefaService {
         try {
             TarefaAfazer afazer = buscarAfazerPorId(id);
             if (afazer == null) {
-                throw new ServiceOperationException("Todo task not found with ID: " + id);
+                throw new ServiceOperationException("Tarefa Afazer não encontrada com ID: " + id);
             }
             afazer.setNome(novoNome);
             afazer.setDataConclusao(novaDataConclusao);
             afazerDAO.update(id, afazer);
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error editing todo task: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao editar Tarefa Afazer: " + e.getMessage(), e);
         }
     }
 
@@ -129,7 +129,7 @@ public class TarefaService {
             Optional<TarefaHabito> habito = habitoDAO.findById(id);
             return habito.orElse(null);
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error finding habit task by ID: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao encontrar Tarefa Hábito por ID: " + e.getMessage(), e);
         }
     }
 
@@ -138,7 +138,7 @@ public class TarefaService {
             Optional<TarefaDiaria> diaria = diariaDAO.findById(id);
             return diaria.orElse(null);
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error finding daily task by ID: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao encontrar Tarefa Diária por ID: " + e.getMessage(), e);
         }
     }
 
@@ -147,7 +147,7 @@ public class TarefaService {
             Optional<TarefaAfazer> afazer = afazerDAO.findById(id);
             return afazer.orElse(null);
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error finding todo task by ID: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao localizar Tarefa Afazer por ID: " + e.getMessage(), e);
         }
     }
 
@@ -155,7 +155,7 @@ public class TarefaService {
         try {
             getDAO(tarefa).delete(tarefa.getId());
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error removing task: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao remover tarefa: " + e.getMessage(), e);
         }
     }
 
@@ -167,7 +167,7 @@ public class TarefaService {
         } else if (tarefa instanceof TarefaAfazer) {
             return afazerDAO;
         } else {
-            throw new ServiceOperationException("Unsupported task type: " + tarefa.getClass().getSimpleName());
+            throw new ServiceOperationException("Tipo de tarefa não suportada: " + tarefa.getClass().getSimpleName());
         }
     }
 
@@ -185,9 +185,9 @@ public class TarefaService {
             if (afazer.isPresent()) {
                 return afazer.get();
             }
-            throw new ServiceOperationException("Task not found with ID: " + id);
+            throw new ServiceOperationException("Tarefa não encontrada com ID: " + id);
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error finding task by ID: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao localizar tarefa por ID: " + e.getMessage(), e);
         }
     }
 
@@ -195,7 +195,7 @@ public class TarefaService {
         try {
             return habitoDAO.findAll();
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error listing habits: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao listar Hábitos: " + e.getMessage(), e);
         }
     }
 
@@ -203,7 +203,7 @@ public class TarefaService {
         try {
             return diariaDAO.findAll();
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error listing dailies: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao listar Diárias: " + e.getMessage(), e);
         }
     }
 
@@ -211,7 +211,7 @@ public class TarefaService {
         try {
             return afazerDAO.findAll();
         } catch (DAOException e) {
-            throw new ServiceOperationException("Error listing todos: " + e.getMessage(), e);
+            throw new ServiceOperationException("Erro ao lista Afazeres: " + e.getMessage(), e);
         }
     }
 

@@ -27,7 +27,7 @@ public class AdicionarTarefaView extends TarefaView {
         System.out.println("3. Afazer");
         System.out.print("Escolha o tipo de tarefa: ");
         int tipo = scanner.nextInt();
-        scanner.nextLine(); // Limpar o buffer de entrada
+        scanner.nextLine();
 
         System.out.print("Nome da Tarefa: ");
         String nome = scanner.nextLine();
@@ -35,7 +35,7 @@ public class AdicionarTarefaView extends TarefaView {
         try {
             switch (tipo) {
                 case 1:
-                    TarefaHabito habito = new TarefaHabito(nome); // Criando com o construtor de nome
+                    TarefaHabito habito = new TarefaHabito(nome);
                     tarefaService.adicionar(habito);
                     break;
                 case 2:
@@ -50,11 +50,10 @@ public class AdicionarTarefaView extends TarefaView {
                         prioridade = Prioridade.BAIXA;
                     }
 
-                    TarefaDiaria diaria = new TarefaDiaria(nome, prioridade); // Criando com o construtor de nome e prioridade
+                    TarefaDiaria diaria = new TarefaDiaria(nome, prioridade);
                     tarefaService.adicionar(diaria);
                     break;
                 case 3:
-                    // Adicionar tarefa afazer
                     LocalDate dataConclusao = null;
                     boolean dataValida = false;
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");

@@ -32,7 +32,7 @@ public class MainView {
             System.out.print("Escolha uma opção: ");
 
             opcao = scanner.nextInt();
-            scanner.nextLine(); // Limpar o buffer de entrada
+            scanner.nextLine();
 
             TarefaView view;
             switch (opcao) {

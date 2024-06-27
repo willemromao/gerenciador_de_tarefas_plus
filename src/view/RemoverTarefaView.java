@@ -18,11 +18,11 @@ public class RemoverTarefaView extends TarefaView {
         System.out.println("3. Afazer");
         System.out.print("Escolha o tipo de tarefa: ");
         int tipo = scanner.nextInt();
-        scanner.nextLine(); // Limpar o buffer de entrada
+        scanner.nextLine();
 
         System.out.print("ID da Tarefa a ser removida: ");
         int id = scanner.nextInt();
-        scanner.nextLine(); // Limpar o buffer de entrada
+        scanner.nextLine();
 
         try {
             Tarefa tarefa = null;

@@ -26,7 +26,7 @@ public class EditarTarefaView extends TarefaView {
 
         System.out.print("ID da Tarefa a ser editada: ");
         int id = scanner.nextInt();
-        scanner.nextLine(); // Limpar o buffer de entrada
+        scanner.nextLine();
 
         try {
             String novoNome;
@@ -46,7 +46,7 @@ public class EditarTarefaView extends TarefaView {
                         novaPrioridade = Prioridade.valueOf(novaPrioridadeInput);
                     } catch (IllegalArgumentException e) {
                         System.out.println("Prioridade inválida. Usando prioridade atual.");
-                        novaPrioridade = Prioridade.MEDIA; // Valor padrão
+                        novaPrioridade = Prioridade.MEDIA;
                     }
                     tarefaService.editarTarefaDiaria(id, novoNome, novaPrioridade);
                     break;
