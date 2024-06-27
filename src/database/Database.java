@@ -6,16 +6,13 @@ import exception.EntityNotFoundException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 
 public class Database {
     private static Database instance;
     private final Map<Class<?>, DatabaseTable<?>> tables = new HashMap<>();
-    private final AtomicInteger nextId = new AtomicInteger(1);
 
-    private Database() {
-    }
+    private Database() {}
 
     public static synchronized Database getInstance() {
         if (instance == null) {

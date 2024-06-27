@@ -1,19 +1,17 @@
 package dao;
 
-import entity.Entity;
-import entity.Tarefa;
 import exception.DAOException;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
 
-public interface DAO<T extends Entity> {
-    void save(Tarefa entity) throws DAOException;
+public interface DAO<T> {
+    void save(T entity) throws DAOException;
     Optional<T> findById(int id) throws DAOException;
     List<T> findAll() throws DAOException;
     List<T> findAll(Predicate<T> filter) throws DAOException;
     List<T> findAll(Comparator<T> comparator) throws DAOException;
-    void update(int id, Tarefa entity) throws DAOException;
+    void update(int id, T entity) throws DAOException;
     void delete(int id) throws DAOException;
 }

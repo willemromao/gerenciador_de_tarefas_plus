@@ -20,6 +20,4 @@ public abstract class Tarefa extends Entity {
         return "Tarefa{id=" + getId() + ", nome='" + nome + "'}";
     }
 
-    public void concluir() {
-    }
 }

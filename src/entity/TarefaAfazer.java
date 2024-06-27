@@ -17,14 +17,9 @@ public class TarefaAfazer extends Tarefa {
     }
 
     @Override
-    public void concluir() {
-        this.dataConclusao = LocalDate.now();
-    }
-
-    @Override
     public String toString() {
         return "Tarefa Afazer (" + getId() +
-                ")   " + getNome() +
-                "   Data de conclusão: " + dataConclusao.format(formatter);
+                ")   [" + getNome() +
+                "]   Data de conclusão: " + dataConclusao.format(formatter);
     }
 }

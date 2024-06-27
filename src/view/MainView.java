@@ -14,9 +14,9 @@ public class MainView {
 
     public MainView() {
         Database database = Database.getInstance();
-        TarefaDAO<TarefaHabito> tarefaHabitoDAO = new TarefaDAO<>(database.getTable(TarefaHabito.class));
-        TarefaDAO<TarefaDiaria> tarefaDiariaDAO = new TarefaDAO<>(database.getTable(TarefaDiaria.class));
-        TarefaDAO<TarefaAfazer> tarefaAfazerDAO = new TarefaDAO<>(database.getTable(TarefaAfazer.class));
+        TarefaDAO<TarefaHabito> tarefaHabitoDAO = new TarefaDAO<>(TarefaHabito.class);
+        TarefaDAO<TarefaDiaria> tarefaDiariaDAO = new TarefaDAO<>(TarefaDiaria.class);
+        TarefaDAO<TarefaAfazer> tarefaAfazerDAO = new TarefaDAO<>(TarefaAfazer.class);
         this.tarefaService = new TarefaService(tarefaHabitoDAO, tarefaDiariaDAO, tarefaAfazerDAO);
     }
 
@@ -29,7 +29,7 @@ public class MainView {
             System.out.println("2. Adicionar");
             System.out.println("3. Editar");
             System.out.println("4. Remover");
-            System.out.println("5. Concluir uma Tarefa");
+            System.out.println("5. Contador de Hábitos");
             System.out.println("6. Sair do sistema \n");
             System.out.print("Escolha uma opção: ");
 
@@ -51,7 +51,7 @@ public class MainView {
                     view = new RemoverTarefaView(tarefaService);
                     break;
                 case 5:
-                    view = new ConcluirTarefaView(tarefaService);
+                    view = new ContadorHabitosView(tarefaService);
                     break;
                 case 6:
                     System.out.println("Saindo do sistema...");

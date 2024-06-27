@@ -20,7 +20,7 @@ public class RemoverTarefaView extends TarefaView {
         int tipo = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.print("ID da Tarefa a ser removida: ");
+        System.out.print("Número da Tarefa a ser removida: ");
         int id = scanner.nextInt();
         scanner.nextLine();
 

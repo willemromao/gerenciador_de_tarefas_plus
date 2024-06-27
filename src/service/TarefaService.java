@@ -38,15 +38,6 @@ public class TarefaService {
         }
     }
 
-    public void concluir(Tarefa tarefa) throws ServiceOperationException {
-        try {
-            tarefa.concluir();
-            getDAO(tarefa).update(tarefa.getId(), tarefa);
-        } catch (DAOException e) {
-            throw new ServiceOperationException("Erro ao concluir a tarefa: " + e.getMessage(), e);
-        }
-    }
-
     public void adicionar(TarefaHabito habito) throws ServiceOperationException {
         try {
             habitoDAO.save(habito);

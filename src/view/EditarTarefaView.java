@@ -24,7 +24,7 @@ public class EditarTarefaView extends TarefaView {
         int tipo = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.print("ID da Tarefa a ser editada: ");
+        System.out.print("Número da Tarefa a ser editada: ");
         int id = scanner.nextInt();
         scanner.nextLine();
 

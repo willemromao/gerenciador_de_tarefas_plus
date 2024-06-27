@@ -22,12 +22,11 @@ public class DatabaseTable<T extends Entity> implements DatabaseTableI<T> {
         data.put(entityId, entity);
     }
 
-
     @Override
     public T findById(int id) throws EntityNotFoundException {
         T entity = data.get(id);
         if (entity == null) {
-            throw new EntityNotFoundException("Entity with ID " + id + " not found.");
+            throw new EntityNotFoundException("Entidade com ID " + id + " não encontrada.");
         }
         return entity;
     }
@@ -35,7 +34,7 @@ public class DatabaseTable<T extends Entity> implements DatabaseTableI<T> {
     @Override
     public void update(int id, T entity) throws EntityNotFoundException {
         if (!data.containsKey(id)) {
-            throw new EntityNotFoundException("Entity with ID " + id + " not found.");
+            throw new EntityNotFoundException("Entidade com ID " + id + " não encontrada.");
         }
         entity.setId(id);
         data.put(id, entity);
@@ -44,7 +43,7 @@ public class DatabaseTable<T extends Entity> implements DatabaseTableI<T> {
     @Override
     public void delete(int id) throws EntityNotFoundException {
         if (data.remove(id) == null) {
-            throw new EntityNotFoundException("Entity with ID " + id + " not found.");
+            throw new EntityNotFoundException("Entidade com ID " + id + " não encontrada.");
         }
     }
 
