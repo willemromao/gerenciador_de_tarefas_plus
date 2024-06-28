@@ -22,6 +22,14 @@ O sistema de gerenciamento de tarefas possui várias funcionalidades para facili
     - **Nome**: Identificação da tarefa.
     - **Data**: Data específica para a realização da tarefa.
 
+**TELA PRINCIPAL:**
+
+![Exemplo 1](img/Exemplo 1.png)
+
+**TELA DE EXIBIÇÃO:**
+
+![Exemplo 2](img/Exemplo 2.png)
+
 ## Funcionalidades do Sistema
 O sistema permite uma gestão das tarefas, oferecendo as seguintes funcionalidades:
 
