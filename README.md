@@ -24,11 +24,11 @@ O sistema de gerenciamento de tarefas possui várias funcionalidades para facili
 
 **TELA PRINCIPAL:**
 
-![Exemplo 1](img/Exemplo 1.png)
+![Exemplo 1](img/ex1.png)
 
 **TELA DE EXIBIÇÃO:**
 
-![Exemplo 2](img/Exemplo 2.png)
+![Exemplo 2](img/ex2.png)
 
 ## Funcionalidades do Sistema
 O sistema permite uma gestão das tarefas, oferecendo as seguintes funcionalidades:
